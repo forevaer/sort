@@ -7,7 +7,8 @@ def radix(data, digit=0):
 	step = pow(10, digit)
 	for value in data:
 		buckets[(value % step) // (step if step < 10 else step // 10)].append(value)
-		flag = value // step
+		if not flag:
+		    flag = value // step
 	for bucket in buckets:
 		if bucket:
 			result += bucket
